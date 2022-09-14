@@ -7,8 +7,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.art.book.R
 import com.art.book.databinding.FragmentArtDetailsBinding
+import com.bumptech.glide.RequestManager
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class ArtDetailsFragment: Fragment(R.layout.fragment_art_details) {
+@AndroidEntryPoint
+class ArtDetailsFragment @Inject constructor(
+    val glideRequestManager: RequestManager
+): Fragment(R.layout.fragment_art_details) {
 
     private var fragmentArtDetailsBinding: FragmentArtDetailsBinding? = null
 

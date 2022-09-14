@@ -8,9 +8,11 @@ import com.art.book.model.Art
 import com.art.book.model.ImageResponse
 import com.art.book.repository.IArtRepository
 import com.art.book.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class ArtViewModel @Inject constructor(
     private val iArtRepository: IArtRepository
 ): ViewModel() {

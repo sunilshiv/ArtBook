@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.art.book.R
 import com.art.book.databinding.FragmentArtsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ArtFragment: Fragment(R.layout.fragment_arts) {
 
     private var fragmentArtsBinding: FragmentArtsBinding? = null
