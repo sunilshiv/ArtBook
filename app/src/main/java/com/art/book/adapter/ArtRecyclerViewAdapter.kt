@@ -41,7 +41,7 @@ class ArtRecyclerViewAdapter @Inject constructor(
     }
 
     override fun onBindViewHolder(holder: ArtViewHolder, position: Int) {
-        val imageView = holder.itemView.findViewById<ImageView>(R.id.artImageView)
+        val imageView = holder.itemView.findViewById<ImageView>(R.id.artImgView)
         val nameText = holder.itemView.findViewById<TextView>(R.id.artRowNameText)
         val artistNameText = holder.itemView.findViewById<TextView>(R.id.artRowArtistNameText)
         val yearText = holder.itemView.findViewById<TextView>(R.id.artRowYearText)
