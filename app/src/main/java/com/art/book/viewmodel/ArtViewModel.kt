@@ -46,19 +46,22 @@ class ArtViewModel @Inject constructor(
         iArtRepository.insertArt(art)
     }
 
-    fun makeArt(name: String, artistName: String, year: String) {
-        if(name.isEmpty() || artistName.isEmpty() || year.isEmpty()) {
-            insertArtMsg.postValue(Resource.error("Enter art, artistname and year", null))
+    fun deleteArt(art: Art) = viewModelScope.launch {
+        iArtRepository.deleteArt(art)
+    }
+
+    fun makeArt(name : String, artistName : String, year : String) {
+        if (name.isEmpty() || artistName.isEmpty() || year.isEmpty() ) {
+            insertArtMsg.postValue(Resource.error("Enter name, artist, year", null))
             return
         }
-
         val yearInt = try {
             year.toInt()
-        }catch (ex: Exception){
-            insertArtMsg.postValue(Resource.error("Year should be a number", null))
+        } catch (e: Exception) {
+            insertArtMsg.postValue(Resource.error("Year should be number",null))
+            return
         }
-
-        val art = Art(name, artistName, yearInt as Int, selectedImageUrl.value ?: "")
+        val art = Art(name, artistName, yearInt,selectedImage.value?: "")
         insertArt(art)
         setSelectedImage("")
         insertArtMsg.postValue(Resource.success(art))

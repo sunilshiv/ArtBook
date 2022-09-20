@@ -48,14 +48,23 @@ class ImageRecyclerAdapter @Inject constructor(
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val imageSearchView = holder.itemView.findViewById<ImageView>(R.id.imageSearchView)
         val url = artImages[position]
-        url.apply {
+
+        holder.itemView.apply {
             requestManager.load(url).into(imageSearchView)
-            setOnItemClickListener {
+            setOnClickListener {
                 onItemClickListener?.let {
                     it(url)
                 }
             }
         }
+       /* url.apply {
+            requestManager.load(url).into(imageSearchView)
+            setOnClickListener {
+                onItemClickListener?.let {
+                    it(url)
+                }
+            }
+        }*/
     }
 
     override fun getItemCount(): Int {
